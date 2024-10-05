@@ -7,7 +7,6 @@ export default function Main(){
     return (
 
 <>
-    <HeaderNav/>
     <div className={'container'}>
         <div className={'row'}>
             <div className={'col-12 col-lg-9 d-flex align-items-stretch'}>
@@ -18,7 +17,6 @@ export default function Main(){
             </div>
         </div>
     </div>
-    <FooterComponent/>
     </>
 
     );

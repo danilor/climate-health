@@ -5,11 +5,11 @@ import FooterComponent from "../components/FooterComponent";
 import {Outlet} from "react-router";
 import Main from "../screen/Main";
 
-export default function Layout(){
+export default function Layout() {
     return (
         <>
             <HeaderNav/>
-            <Main/>
+            <Outlet/>
 
             <FooterComponent/>
 
