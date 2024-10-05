@@ -1,5 +1,5 @@
 const MapsAPI = {
-    key: 'AIzaSyBqH3D8GisH2c2H5MX_b7eGQo-8v895Z6Y',
+    key: process.env.REACT_APP_GMAPS_APIKEY,
     defaultLat: 39.415146803698136,
     defaultLng: -101.11991352256409,
     defaultZoom: 7,

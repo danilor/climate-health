@@ -65,6 +65,7 @@ export default function MapComponent({
 
     useEffect(() => {
         getCurrentLocation();
+
     }, []);
 
 
@@ -74,7 +75,7 @@ export default function MapComponent({
 
     return (
         <div className={'mapSpace'}>
-            <APIProvider apiKey={MapsAPI.key}>
+            <APIProvider apiKey={MapsAPI.key!.toString()}>
                 <Map
                     mapId={MapsAPI.defaultMapID}
                     style={{width: width, height: height}}
