@@ -119,10 +119,18 @@ export default function MapComponent({
 
 
     return (
-        <div className={'mapSpace'}>
-            <APIProvider apiKey={MapsAPI.key!.toString()}>
-                <SingleMapComponent actionEmitter={actionEmitter} width={width} height={height} locationChange={locationChange}/>
-            </APIProvider>
+        <div className="card" style={{width: '100%'}}>
+
+            <div className="card-body">
+                <div className={'mapSpace'}>
+                    <APIProvider apiKey={MapsAPI.key!.toString()}>
+                        <SingleMapComponent actionEmitter={actionEmitter} width={width} height={height}
+                                            locationChange={locationChange}/>
+                    </APIProvider>
+                </div>
+
+            </div>
         </div>
+
     );
 }
