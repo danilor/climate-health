@@ -1,0 +1,39 @@
+.mapSpace {
+  position: relative;
+  width: 100%;
+
+  .control-panel {
+    @include set_transition(all $transitionTime ease);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 80%;
+    //max-width: 400px;
+    background-color: white;
+    padding: 15px 10px;
+    border-radius: 12px;
+
+
+    @include min_md {
+      @include set_transition(all $transitionTime ease);
+      width: 35%;
+    }
+    @include min_lg {
+      @include set_transition(all $transitionTime ease);
+      width: 20%;
+    }
+
+    @include min_xl {
+      @include set_transition(all $transitionTime ease);
+      width: 18%;
+    }
+    @include min_hg {
+      @include set_transition(all $transitionTime ease);
+      width: 15%;
+    }
+
+    .cord{
+
+    }
+  }
+}
