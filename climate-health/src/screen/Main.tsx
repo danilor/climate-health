@@ -2,8 +2,15 @@ import MapComponent from "../components/MapComponent";
 import HeaderNav from "../components/HeaderNav";
 import ActualRain from "../components/ActualRain";
 import FooterComponent from "../components/FooterComponent";
+import {useEffect} from "react";
+import LoadingService from "../services/Loading.service";
 
 export default function Main(){
+
+    useEffect(()=>{
+        // LoadingService.show();
+    },[]);
+
     return (
 
 <>
