@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {APIProvider, Map, AdvancedMarker} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, useMap} from '@vis.gl/react-google-maps';
 import MapsAPI from "../config/MapsAPI";
 
 import markerImage from './../img/NASAPIN.png';
@@ -13,22 +13,23 @@ type MapComponentProps = {
     actionEmitter: Function;
 }
 
-export default function MapComponent({
-                                         width = '100%', height = '500px',
-                                         locationChange = () => {
-                                         },
-                                         actionEmitter = () => {
-                                         }
-                                     }: MapComponentProps) {
 
+export function SingleMapComponent({
+                                       width = '100%', height = '500px',
+                                       locationChange = () => {
+                                       },
+                                       actionEmitter = () => {
+                                       }
+                                   }: MapComponentProps){
 
     const [lat, setLat] = React.useState(MapsAPI.defaultLat);
     const [lng, setLng] = React.useState(MapsAPI.defaultLng);
 
+    let mapReference = useMap();
+    const [loaded, setLoaded] = React.useState(false);
+
     const [mapLat, setMapLat] = React.useState(MapsAPI.defaultLat);
     const [mapLng, setMapLng] = React.useState(MapsAPI.defaultLng);
-
-    const [loaded, setLoaded] = React.useState(false);
 
     const markerDragged = (e: google.maps.MapMouseEvent) => {
         setLat(e.latLng!.lat());
@@ -63,37 +64,64 @@ export default function MapComponent({
 
     }
 
+
+
+
     useEffect(() => {
         getCurrentLocation();
 
-    }, []);
+    }, [mapReference]);
 
 
     if (!loaded) {
         return (<></>);
     }
 
+
+    return (
+        <>
+            <Map
+
+                mapId={MapsAPI.defaultMapID}
+                style={{width: width, height: height}}
+                defaultCenter={{lat: mapLat, lng: mapLng}}
+                defaultZoom={MapsAPI.defaultZoom}
+                gestureHandling={'greedy'}
+                disableDefaultUI={true}
+            >
+
+                <AdvancedMarker
+                    position={{lat: lat, lng: lng}}
+                    draggable={true}
+                    onDragEnd={markerDragged}
+                >
+                    <img src={markerImage} width={MapsAPI.pinSize} height={MapsAPI.pinSize}/>
+                </AdvancedMarker>
+            </Map>
+            <MapControlPanel actionEmitter={(action: string)=>{actionEmitter(action)}} lat={lat} lng={lng}/>
+        </>
+    );
+
+}
+
+export default function MapComponent({
+                                         width = '100%', height = '500px',
+                                         locationChange = () => {
+                                         },
+                                         actionEmitter = () => {
+                                         }
+                                     }: MapComponentProps) {
+
+
+
+
+
+
+
     return (
         <div className={'mapSpace'}>
             <APIProvider apiKey={MapsAPI.key!.toString()}>
-                <Map
-                    mapId={MapsAPI.defaultMapID}
-                    style={{width: width, height: height}}
-                    defaultCenter={{lat: mapLat, lng: mapLng}}
-                    defaultZoom={MapsAPI.defaultZoom}
-                    gestureHandling={'greedy'}
-                    disableDefaultUI={true}
-                >
-
-                    <AdvancedMarker
-                        position={{lat: lat, lng: lng}}
-                        draggable={true}
-                        onDragEnd={markerDragged}
-                    >
-                        <img src={markerImage} width={MapsAPI.pinSize} height={MapsAPI.pinSize}/>
-                    </AdvancedMarker>
-                </Map>
-                <MapControlPanel actionEmitter={(action: string)=>{actionEmitter(action)}} lat={lat} lng={lng}/>
+                <SingleMapComponent actionEmitter={actionEmitter} width={width} height={height} locationChange={locationChange}/>
             </APIProvider>
         </div>
     );
