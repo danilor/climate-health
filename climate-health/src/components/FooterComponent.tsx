@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default function FooterComponent(){
     return (
         <nav className="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
@@ -11,15 +13,14 @@ export default function FooterComponent(){
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <Link to={'/'} className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">About Us</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Challenge</a>
+                            <Link to={'/challenge'} className="nav-link">Challenge</Link>
                         </li>
-
                     </ul>
                 </div>
             </div>
