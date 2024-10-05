@@ -1,10 +1,24 @@
 import MapComponent from "../components/MapComponent";
+import HeaderNav from "../components/HeaderNav";
+import ActualRain from "../components/ActualRain";
 
 export default function Main(){
     return (
 
             <>
-                <MapComponent actionEmitter={(action: string)=>{}}/>
+                <HeaderNav/>
+                <div className={'container'}>
+                    <div className={'row'}>
+                        <div className={'col-12 col-lg-9 d-flex align-items-stretch'}>
+                            <MapComponent actionEmitter={(action: string)=>{}}/>
+                        </div>
+                        <div className={'col-12 col-lg-3 d-flex align-items-stretch mt-3 mt-lg-0'}>
+                            <ActualRain />
+                        </div>
+                    </div>
+                </div>
+
+
             </>
 
     );
