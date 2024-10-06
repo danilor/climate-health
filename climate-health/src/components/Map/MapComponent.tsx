@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 
 import {APIProvider, Map, AdvancedMarker, useMap} from '@vis.gl/react-google-maps';
-import MapsAPI from "../config/MapsAPI";
+import MapsAPI from "../../config/MapsAPI";
 
-import markerImage from './../img/NASAPIN.png';
+import markerImage from '../../img/NASAPIN.png';
 import MapControlPanel from "./MapControlPanel";
-import useCoordinatesStore from "../store/Coordinates.store";
+import useCoordinatesStore from "../../store/Coordinates.store";
 
 type MapComponentProps = {
     width?: string;
@@ -36,7 +36,7 @@ export function SingleMapComponent({
     const [mapLng, setMapLng] = React.useState(MapsAPI.defaultLng);
 
     const markerDragged = (e: google.maps.MapMouseEvent) => {
-        setLat(e.latLng!.lat());
+       setLat(e.latLng!.lat());
         setLng(e.latLng!.lng());
         // console.log('Marker dragged to:', e.latLng!.lat(), e.latLng!.lng());
         const location = {
@@ -44,13 +44,18 @@ export function SingleMapComponent({
             lng: e.latLng!.lng()
         };
         locationChange(location);
-        setCoordinates(location)
+        setCoordinates(location);
+
     }
+
 
     const getCurrentLocation = () => {
         const location = window.navigator && window.navigator.geolocation
         if (location) {
             location.getCurrentPosition((position) => {
+
+                console.log('Location got:', position.coords.latitude, position.coords.longitude);
+
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
                 setMapLat(position.coords.latitude);
