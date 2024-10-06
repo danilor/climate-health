@@ -6,7 +6,7 @@ export default function FooterComponent(){
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Climate Health</a>
                
-                <div className="collapse navbar-collapse" id="navbarCollapse">
+                <div className="navbar-collapse" id="navbarCollapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to={'/'} className="nav-link">Home</Link>

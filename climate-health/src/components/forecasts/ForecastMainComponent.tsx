@@ -64,9 +64,12 @@ export default function ForecastMainComponent() {
                 <div className="card-body">
                     {/*<h5 className="card-title">Forecast</h5>*/}
 
-                    <div className="alert alert-secondary" role="alert">
-                        {climateDescription}
-                    </div>
+                    {(climateDescription !== '' ? (
+                        <div className="alert alert-secondary" role="alert">
+                            {climateDescription}
+                        </div>
+                    ) : null)}
+
 
                     <div className={'chart'}>
                         <ul className="nav nav-tabs">
