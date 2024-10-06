@@ -127,7 +127,7 @@ export default function MapComponent({
     return (
         <div className="card" style={{width: '100%'}}>
 
-            <div className="card-body">
+            <div className="card-body p-0">
                 <div className={'mapSpace'}>
                     <APIProvider apiKey={MapsAPI.key!.toString()}>
                         <SingleMapComponent actionEmitter={actionEmitter} width={width} height={height}
