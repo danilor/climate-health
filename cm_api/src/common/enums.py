@@ -50,3 +50,18 @@ class TemperatureUnit(Enum):
     CELSIUS = "C"
     FAHRENHEIT = "F"
     KELVIN = "K"
+
+
+class RangeTypes(Enum):
+    MONTHS = "months"
+    DAYS = "days"
+
+
+class TimePeriods(Enum):
+    HOUR_2 = "PT2H"
+    HOUR_3 = "PT3H"
+    HOUR_6 = "PT6H"
+    HOUR_12 = "PT12H"
+    DAY_1 = "P1D"
+    WEEK_1 = "P1W"
+    MONTH_1 = "P1M"

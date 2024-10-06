@@ -18,7 +18,7 @@ CurrentBlueprint = Blueprint(
     name="current",
     import_name=__name__,
     url_prefix="/current",
-    description="Operaciones datos actuales",
+    description="This endpoints return data for current time",
 )
 
 
@@ -77,9 +77,5 @@ class Current(MethodView):
         
         
         return data
-        
-@CurrentBlueprint.route("/token")
-class Authentication(MethodView):
-    def get(self):
-        return {"token": request_token()}
-        
+
+

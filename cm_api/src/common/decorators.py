@@ -18,17 +18,20 @@ def request_token():
     return token_data["access_token"]
 
 def is_token_expired():
-    
+    time = session.get("expires")    
+    if not time or time.replace(tzinfo=None) < datetime.now():
+        return True
+    return False
+
 
 def get_token(f):    
     @wraps(f)
-    def wrapper(*args, **kwargs):
-        if session.get("token") and :
-            g.token = session.get("token")
-                      
+    def wrapper(*args, **kwargs):        
+        if session.get("token") and not is_token_expired():
+            g.token = session.get("token")                      
         else:
-            session["expires"] = datetime.now() + timedelta(hours=1)
-            session["token"] = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2IjoxLCJ1c2VyIjoicG9ycmFzX2pvc2UiLCJpc3MiOiJsb2dpbi5tZXRlb21hdGljcy5jb20iLCJleHAiOjE3MjgxNzkwNDYsInN1YiI6ImFjY2VzcyJ9.jRJbc4AFtUyXenGWkUB9UaqkN_OhbfTZGwScMAaSWr9hCy4h0y8mBAZ61E1YaVmq4OjHNQnSmha2z_chDHy6eA"
+            session["expires"] = datetime.now() + timedelta(minutes=5)
+            session["token"] = request_token()
             g.token = session["token"]
             g.expires = session["expires"]
 
