@@ -5,6 +5,7 @@ import MapsAPI from "../config/MapsAPI";
 
 import markerImage from './../img/NASAPIN.png';
 import MapControlPanel from "./MapControlPanel";
+import useCoordinatesStore from "../store/Coordinates.store";
 
 type MapComponentProps = {
     width?: string;
@@ -28,17 +29,22 @@ export function SingleMapComponent({
     let mapReference = useMap();
     const [loaded, setLoaded] = React.useState(false);
 
+    const setCoordinates =  useCoordinatesStore( (state: any) => state.setCoordinates);
+
+
     const [mapLat, setMapLat] = React.useState(MapsAPI.defaultLat);
     const [mapLng, setMapLng] = React.useState(MapsAPI.defaultLng);
 
     const markerDragged = (e: google.maps.MapMouseEvent) => {
         setLat(e.latLng!.lat());
         setLng(e.latLng!.lng());
-        console.log('Marker dragged to:', e.latLng!.lat(), e.latLng!.lng());
-        locationChange({
+        // console.log('Marker dragged to:', e.latLng!.lat(), e.latLng!.lng());
+        const location = {
             lat: e.latLng!.lat(),
             lng: e.latLng!.lng()
-        });
+        };
+        locationChange(location);
+        setCoordinates(location)
     }
 
     const getCurrentLocation = () => {
@@ -50,10 +56,12 @@ export function SingleMapComponent({
                 setMapLat(position.coords.latitude);
                 setMapLng(position.coords.longitude);
                 setLoaded(true);
-                locationChange({
+                const location = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
-                });
+                };
+                locationChange(location);
+                setCoordinates(location)
             }, (error) => {
                 // this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
                 setLoaded(true);
@@ -63,8 +71,6 @@ export function SingleMapComponent({
         }
 
     }
-
-
 
 
     useEffect(() => {
@@ -121,7 +127,7 @@ export default function MapComponent({
     return (
         <div className="card" style={{width: '100%'}}>
 
-            <div className="card-body">
+            <div className="card-body p-0">
                 <div className={'mapSpace'}>
                     <APIProvider apiKey={MapsAPI.key!.toString()}>
                         <SingleMapComponent actionEmitter={actionEmitter} width={width} height={height}

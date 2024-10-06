@@ -4,16 +4,72 @@
 @import "mixin";
 @import "map";
 @import "loading";
-body{
-  background: white;
-  .navbar{
-    background-color: $darkGreen!important;
+
+
+body {
+  background: #f2f2f2;
+
+  .navbar {
+    background-color: $darkGreen !important;
 
   }
-  .customHeader{
-    height: 100px!important;
-    .title{
+
+  .customHeader {
+    height: 100px !important;
+
+    .title {
       font-size: 2.5rem;
     }
+  }
+
+  .customHeroImage {
+    background-image: url('../img/vegetablecrops.jpeg');
+    height: 310px !important;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    @include min_lg {
+      @include set_transition(all $transitionTime ease);
+      justify-content: flex-end;
+    }
+
+    .hero-text {
+      margin-right: 10px;
+      background-color: rgba(0,0, 0, 0.3);
+      border-radius: $generalRadius;
+      text-align: left;
+      padding: 30px 20px;
+      max-width: 450px;
+      h1,h2,h3,h4,p{
+        color: white;
+        line-height: 100%;
+      }
+      p{
+        text-align: justify;
+      }
+
+      @include min_md {
+        @include set_transition(all $transitionTime ease);
+        width: 80%;
+      }
+      @include min_lg {
+        @include set_transition(all $transitionTime ease);
+        width: 48%;
+      }
+      @include min_xl {
+        @include set_transition(all $transitionTime ease);
+        width: 45%;
+      }
+      @include min_hg {
+        @include set_transition(all $transitionTime ease);
+        width: 40%;
+      }
+    }
+
+
   }
 }
