@@ -1,21 +1,36 @@
 import MapComponent from "../components/MapComponent";
-import HeaderNav from "../components/HeaderNav";
 import ActualRain from "../components/ActualRain";
-import FooterComponent from "../components/FooterComponent";
 import {useEffect} from "react";
-import LoadingService from "../services/Loading.service";
 import useCoordinatesStore from "../store/Coordinates.store";
 import HeroImage from "../components/HeroImage";
+import useActionsStore from "../store/Actions.store";
+import StringUtilities from "../String.utilities";
 
 export default function Main(){
 
     const coordinates =  useCoordinatesStore( (state: any) => state.coordinates);
+    const setCoordinates =  useCoordinatesStore( (state: any) => state.setCoordinates);
+    const setAction =  useActionsStore( (state: any) => state.setAction);
+    const actions =  useActionsStore( (state: any) => state.actions);
+
+
+
 
     useEffect(()=>{
         // LoadingService.show();
     },[]);
 
     console.log('Coordinates', coordinates);
+
+    const executeAction = (action: string) =>{
+        // console.log('Action to be executed', action, coordinates);
+        switch (action) {
+            case 'get':
+                // console.log('Get action');
+                setAction(`Get Coordinates [${StringUtilities.randomId(10)}]`);
+                break;
+        }
+    }
 
     return (
 
@@ -27,6 +42,7 @@ export default function Main(){
             </div>
             <div className={'col-12 col-lg-9 d-flex align-items-stretch'}>
                 <MapComponent actionEmitter={(action: string) => {
+                    executeAction(action)
                 }}/>
             </div>
             <div className={'col-12 col-lg-3 d-flex align-items-stretch mt-3 mt-lg-0'}>
