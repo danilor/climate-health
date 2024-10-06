@@ -332,7 +332,7 @@ Mixins
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 35%;
+    width: 40%;
   }
 }
 @media (min-width: 992px) {
@@ -341,7 +341,7 @@ Mixins
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 20%;
+    width: 35%;
   }
 }
 @media (min-width: 1200px) {
@@ -350,7 +350,7 @@ Mixins
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 18%;
+    width: 25%;
   }
 }
 @media (min-width: 1400px) {
@@ -359,11 +359,154 @@ Mixins
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 15%;
+    width: 20%;
+  }
+}
+.lds-facebook {
+  /* change color here */
+  color: #71e00f;
+}
+
+.lds-facebook,
+.lds-facebook div {
+  box-sizing: border-box;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: currentColor;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
   }
 }
 body {
-  background: white;
+  background: #f2f2f2;
+}
+body .navbar {
+  background-color: #4e9311 !important;
+}
+body .customHeader {
+  height: 100px !important;
+}
+body .customHeader .title {
+  font-size: 2.5rem;
+}
+body .customHeroImage {
+  background-image: url("../img/vegetablecrops.jpeg");
+  height: 310px !important;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  body .customHeroImage {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    justify-content: flex-end;
+  }
+}
+body .customHeroImage .hero-text {
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  text-align: left;
+  padding: 30px 20px;
+  max-width: 450px;
+}
+body .customHeroImage .hero-text h1, body .customHeroImage .hero-text h2, body .customHeroImage .hero-text h3, body .customHeroImage .hero-text h4, body .customHeroImage .hero-text p {
+  color: white;
+  line-height: 100%;
+}
+body .customHeroImage .hero-text p {
+  text-align: justify;
+}
+@media (min-width: 768px) {
+  body .customHeroImage .hero-text {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  body .customHeroImage .hero-text {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: 48%;
+  }
+}
+@media (min-width: 1200px) {
+  body .customHeroImage .hero-text {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: 45%;
+  }
+}
+@media (min-width: 1400px) {
+  body .customHeroImage .hero-text {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    width: 40%;
+  }
+}
+body .predictionsIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3, body .predictionsIcons h4, body .predictionsIcons h5 {
+  font-size: 90px;
 }
 
 /*# sourceMappingURL=styles.css.map */

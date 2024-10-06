@@ -1,9 +1,13 @@
 import './App.css';
 import Main from "./screen/Main";
+import BaseComponent from "./BaseComponent";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
-  return (
-    <Main />
+    return (
+        <BrowserRouter>
+            <BaseComponent/>
+        </BrowserRouter>
   );
 }
 
