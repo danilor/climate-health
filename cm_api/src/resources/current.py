@@ -1,5 +1,5 @@
 import requests
-from flask import current_app, request, session,g
+from flask import current_app, request, session, g
 from flask.views import MethodView
 from flask_smorest import Blueprint
 from datetime import datetime
@@ -9,7 +9,7 @@ from src.common.enums import (
     PrecipitationInterval,
     PrecipitationUnit,
     TemperatureLevel,
-    TemperatureUnit
+    TemperatureUnit,
 )
 from marshmallow import Schema, fields
 from src.common.decorators import get_token, request_token
@@ -17,7 +17,7 @@ from src.common.decorators import get_token, request_token
 CurrentBlueprint = Blueprint(
     name="current",
     import_name=__name__,
-    url_prefix="/current",
+    url_prefix="/api/current",
     description="This endpoints return data for current time",
 )
 
@@ -62,20 +62,21 @@ class Current(MethodView):
             f"{base_url}/{iso_format}"
             f"/{Parameters.TEMPERATURE.value}{TemperatureLevel.ABOVE_GROUND_2M.value}:{TemperatureUnit.CELSIUS.value}/"
             f"{latitude},{longitude}/json?model=mix&access_token={token}"
-        )       
+        )
 
         data = {}
-        try:            
+        try:
             response = requests.get(url=current_precipitation_request)
-            precipitation_data = response.json()            
-            data["precipitation"] = precipitation_data["data"][0]["coordinates"][0]["dates"][0]["value"]
+            precipitation_data = response.json()
+            data["precipitation"] = precipitation_data["data"][0]["coordinates"][0][
+                "dates"
+            ][0]["value"]
             response = requests.get(url=current_temperature_request)
-            temperature_data = response.json()   
-            data["temperature"] = temperature_data["data"][0]["coordinates"][0]["dates"][0]["value"]            
+            temperature_data = response.json()
+            data["temperature"] = temperature_data["data"][0]["coordinates"][0][
+                "dates"
+            ][0]["value"]
         except Exception as e:
             print(str(e))
-        
-        
+
         return data
-
-
