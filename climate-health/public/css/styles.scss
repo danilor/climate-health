@@ -53,7 +53,9 @@ body {
 
   .customHeroImage {
     background-image: url('../img/vegetablecrops.jpeg');
-    height: 310px !important;
+    min-height: 310px !important;
+    height: auto!important;
+    padding: 12px 0;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -123,13 +125,14 @@ body {
 
   .customFooterHeroImage {
     background-image: url('../img/footerimage.jpeg');
-    height: 400px !important;
+    height: auto !important;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
+    padding: 14px 0;
     .hero-text {
       margin-right: 10px;
       background-color: rgba(0, 0, 0, 0.6);

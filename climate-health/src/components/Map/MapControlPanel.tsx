@@ -21,6 +21,8 @@ export default function MapControlPanel({lat, lng, actionEmitter}: MapControlPan
     const setTimePeriod = useTimePeriodStore((state: any) => state.setTimePeriod);
 
 
+
+
     const optionChange = (event: any) => {
         console.log('Option Change', event.target.value);
         setSelectedOption(event.target.value);
@@ -59,7 +61,7 @@ export default function MapControlPanel({lat, lng, actionEmitter}: MapControlPan
                 {/*</div>*/}
 
                 <div className={'form-group mb-2 text-center'}>
-                    <button onClick={() => {
+                    <button disabled={(lat === 0 || lng === 0)} onClick={() => {
                         actionEmitter('get')
                     }} className={'btn btn-success'}><WiDayHail/> Get Climate Data
                     </button>

@@ -1,7 +1,7 @@
 const MapsAPI = {
     key: process.env.REACT_APP_GMAPS_APIKEY,
-    defaultLat: 39.415146803698136,
-    defaultLng: -101.11991352256409,
+    defaultLat: 9.853238573836798,
+    defaultLng: -83.95902371504042,
     defaultZoom: 7,
     defaultMapID: 'gmaps_map_id',
     pinSize: 45,

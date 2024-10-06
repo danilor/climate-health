@@ -8,6 +8,7 @@ import usePeriodStore from "../../store/Period.store";
 import useTimePeriodStore from "../../store/TimePeriod.store";
 import ForecastTemperatureChartComponent from "./ForecastTemperatureChartComponent";
 import CropModel from "../../model/Crop.model";
+import Loading from "../loading/Loading";
 
 export default function ForecastMainComponent() {
 
@@ -27,10 +28,12 @@ export default function ForecastMainComponent() {
 
     const [climateDescription, setClimateDescription] = useState<string>('');
 
+    const [loading, setLoading] = useState<boolean>(false);
 
     const getForecast = () => {
         // console.log('Time period', TimePeriod);
         if (coordinates.lat !== 0 && coordinates.lng !== 0) {
+            setLoading(true);
             APIService.getForecast(coordinates.lat, coordinates.lng, 'days', 90, TimePeriod.key).then((response) => {
                 // console.log('Forecast Response', response.data.forecast);
                 setForecastData(response.data.forecast);
@@ -40,8 +43,10 @@ export default function ForecastMainComponent() {
                     setCropsData(response.data.ai_suggestions.planting_recommendations);
                     setClimateDescription(response.data.ai_suggestions.climate_summary.general_description);
                 }
+                setLoading(false);
             }).catch((error) => {
                 console.error('Error reading the forecast');
+                setLoading(false);
             });
         }
     };
@@ -58,9 +63,20 @@ export default function ForecastMainComponent() {
     }
     // console.log('Actions', actions);
 
+    if(loading){
+        return (
+            <>
+                <Loading/>
+                <div className="alert alert-warning" role="alert">
+                    Please hold on while we gather the necessary information to deliver the most accurate forecast and tailored crop recommendations for you.
+                </div>
+            </>
+        );
+    }
+
     return (
         <>
-            <div className="card" style={{width: '100%'}} id={'forecasting'}>
+            <div className="card mb-3" style={{width: '100%'}} id={'forecasting'}>
                 <div className="card-body">
                     {/*<h5 className="card-title">Forecast</h5>*/}
 
