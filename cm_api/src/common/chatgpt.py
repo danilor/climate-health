@@ -45,7 +45,6 @@ def crops_recommendations_by_forecast(forecast_data: list):
     {json.dumps({"data": forecast_data})}    
     """
     try:
-        breakpoint()
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -55,16 +54,18 @@ def crops_recommendations_by_forecast(forecast_data: list):
                 },
                 {"role": "user", "content": prompt},
             ],
-        )
+        )        
     except Exception as e:
         print(str(e))
 
     # Imprimir la respuesta de OpenAI
-    cleaned_response = (
-        response.choices[0]
-        .message.content.strip()
-        .replace("```json", "")
-        .replace("```", "")
-    )
-    data = json.loads(cleaned_response)
+    try:
+        sample_data = response.choices[0].message.content.strip()
+        first = sample_data.find("{")
+        last =sample_data.rfind("}")
+
+        cleaned_data = sample_data[first:last+1]        
+        data = json.loads(cleaned_data)
+    except Exception as e:
+        print(str(e))
     return data
