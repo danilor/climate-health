@@ -4,7 +4,7 @@ import APIService from "../services/API.service";
 import RainConfig from "../config/RainConfig";
 import {FiThermometer} from "react-icons/fi";
 import useActionsStore from "../store/Actions.store";
-import Loading from "./Loading";
+import Loading from "./loading/Loading";
 
 export default function ActualRain() {
 
@@ -18,26 +18,28 @@ export default function ActualRain() {
     const [loading, setLoading] = useState<boolean>(false);
 
     const getCurrentPredictions = () => {
-        setLoading(true);
-        APIService.getCurrent(coordinates.lat, coordinates.lng).then((response) => {
-            console.log('Coordinates Response');
-            console.log(response.data);
-            const basePrecipitation = RainConfig.scale.find((scale) => {
-                return response.data.precipitation >= scale.min && response.data.precipitation <= scale.max;
+        if (coordinates.lat !== 0 && coordinates.lng !== 0) {
+            setLoading(true);
+            APIService.getCurrent(coordinates.lat, coordinates.lng).then((response) => {
+                console.log('Coordinates Response');
+                console.log(response.data);
+                const basePrecipitation = RainConfig.scale.find((scale) => {
+                    return response.data.precipitation >= scale.min && response.data.precipitation <= scale.max;
+                });
+                // console.log('Base Precipitation', basePrecipitation);
+                setRain(basePrecipitation);
+                setTemperature(response.data.temperature);
+                setLoading(false);
+            }).catch((error) => {
+                console.error('Error reading the current information');
+                setLoading(false);
             });
-            // console.log('Base Precipitation', basePrecipitation);
-            setRain(basePrecipitation);
-            setTemperature(response.data.temperature);
-            setLoading(false);
-        }).catch((error) => {
-            console.error('Error reading the current information');
-            setLoading(false);
-        });
+        }
     };
 
     useEffect(() => {
 
-        // console.log(coordinates);
+        console.log(coordinates);
         getCurrentPredictions();
 
     }, [actions]);

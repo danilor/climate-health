@@ -1,6 +1,8 @@
 import {WiDayHail} from "react-icons/wi";
 import {useEffect, useState} from "react";
-import APIService from "../services/API.service";
+import APIService from "../../services/API.service";
+import useTimePeriodStore from "../../store/TimePeriod.store";
+import TimePeriodModel from "../../model/TimePeriod.model";
 
 
 type MapControlPanelProps = {
@@ -16,11 +18,13 @@ export default function MapControlPanel({lat, lng, actionEmitter}: MapControlPan
     const [selectedOption, setSelectedOption] = useState<number>(3);
     const [advanceOptions, setAdvanceOptions] = useState<boolean>(false);
 
+    const setTimePeriod = useTimePeriodStore((state: any) => state.setTimePeriod);
 
 
     const optionChange = (event: any) => {
         console.log('Option Change', event.target.value);
         setSelectedOption(event.target.value);
+        setTimePeriod(options[event.target.value]);
     }
 
     useEffect(() => {
@@ -28,6 +32,8 @@ export default function MapControlPanel({lat, lng, actionEmitter}: MapControlPan
             // console.log('Options Response');
             // console.log(response.data);
             setOptions(response.data);
+            // console.log('Valid time period', response.data[3]);
+            setTimePeriod(response.data[3] as TimePeriodModel);
         }).catch((error: any) => {
             console.error('Error reading the current information');
         });

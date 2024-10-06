@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 
 import {APIProvider, Map, AdvancedMarker, useMap} from '@vis.gl/react-google-maps';
-import MapsAPI from "../config/MapsAPI";
+import MapsAPI from "../../config/MapsAPI";
 
-import markerImage from './../img/NASAPIN.png';
+import markerImage from '../../img/NASAPIN.png';
 import MapControlPanel from "./MapControlPanel";
-import useCoordinatesStore from "../store/Coordinates.store";
+import useCoordinatesStore from "../../store/Coordinates.store";
 
 type MapComponentProps = {
     width?: string;

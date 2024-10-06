@@ -1,5 +1,5 @@
-import HeaderNav from "../components/HeaderNav";
-import FooterComponent from "../components/FooterComponent";
+import HeaderNav from "../components/generic/HeaderNav";
+import FooterComponent from "../components/generic/FooterComponent";
 import {Outlet} from "react-router";
 
 export default function Layout() {

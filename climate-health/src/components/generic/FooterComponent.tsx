@@ -12,7 +12,7 @@ export default function FooterComponent(){
                             <Link to={'/'} className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About Us</a>
+                            <Link to={'/about'} className="nav-link">About Us</Link>
                         </li>
                         <li className="nav-item">
                             <Link to={'/challenge'} className="nav-link">Challenge</Link>
