@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = 'http://192.168.1.115:5000/api/';
+const BASE_URL = 'http://apicm.japscr.com/api/';
 
 // const BASE_URL = `${API_URL}/api`;
 
