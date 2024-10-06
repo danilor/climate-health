@@ -16,16 +16,12 @@ export default function ActualRain() {
         APIService.getCurrent(coordinates.lat, coordinates.lng).then((response) => {
             console.log('Coordinates Response');
             console.log(response.data);
-
             const basePrecipitation = RainConfig.scale.find((scale) => {
                 return response.data.precipitation >= scale.min && response.data.precipitation <= scale.max;
             });
-
             console.log('Base Precipitation', basePrecipitation);
             setRain(basePrecipitation);
             setTemperature(response.data.temperature);
-
-
         }).catch((error) => {
             console.error('Error reading the current information');
         });
@@ -38,16 +34,13 @@ export default function ActualRain() {
             <div className="card-body">
                 <h5 className="card-title">Predictions of the day</h5>
                 {(rain !== null && rain !== undefined && temperature !== null ) ? (
-
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">Rain Status</h6>
                         <p className="card-text">{rain.text}</p>
                         <h6 className="card-subtitle mb-2 text-muted">Temperature</h6>
                         <p className="card-text">{temperature}</p>
                     </div>
-
                 ): null}
-
             </div>
         </div>
     );
