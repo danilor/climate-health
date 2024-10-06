@@ -543,7 +543,7 @@ body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3,
 }
 body .customFooterHeroImage {
   background-image: url("../img/footerimage.jpeg");
-  height: 350px !important;
+  height: 400px !important;
   background-size: cover;
   background-position: center;
   display: flex;
