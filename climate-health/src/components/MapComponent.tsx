@@ -36,7 +36,7 @@ export function SingleMapComponent({
     const [mapLng, setMapLng] = React.useState(MapsAPI.defaultLng);
 
     const markerDragged = (e: google.maps.MapMouseEvent) => {
-        setLat(e.latLng!.lat());
+       setLat(e.latLng!.lat());
         setLng(e.latLng!.lng());
         // console.log('Marker dragged to:', e.latLng!.lat(), e.latLng!.lng());
         const location = {
@@ -44,8 +44,10 @@ export function SingleMapComponent({
             lng: e.latLng!.lng()
         };
         locationChange(location);
-        setCoordinates(location)
+        setCoordinates(location);
+
     }
+
 
     const getCurrentLocation = () => {
         const location = window.navigator && window.navigator.geolocation

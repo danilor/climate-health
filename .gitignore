@@ -1,2 +1,4 @@
 ﻿*.env
 climate-health/.idea
+.venv
+__pycache__/
