@@ -1,27 +1,36 @@
 import {Link} from "react-router-dom";
+import {useState} from "react";
+import { MdMenu } from "react-icons/md";
+import { IoIosMenu } from "react-icons/io";
 
 export default function HeaderNav(){
 
 
+    const [opened, setOpened] = useState<boolean>(false);
+
     return (
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark customHeader mb-2">
-            <div className="container">
-                <img alt={'logo'} title={'Climate Health'} src={process.env.PUBLIC_URL + "/img/logo.png"}/>
-                {/*<button className="navbar-toggler" type="button" data-bs-toggle="collapse"*/}
-                {/*        data-bs-target="#collapsibleNavbar">*/}
-                {/*    <span className="navbar-toggler-icon"></span>*/}
-                {/*</button>*/}
-                <div className="collapse navbar-collapse">
-                    <ul className="navbar-nav">
+        <div className="mb-2">
+            <nav className="navbar navbar-expand-sm bg-dark navbar-dark customHeader ">
+                <div className="container">
+                    <img alt={'logo'} title={'Climate Health'} src={process.env.PUBLIC_URL + "/img/logo.png"}/>
+                    {/*<button className="navbar-toggler" type="button" data-bs-toggle="collapse"*/}
+                    {/*        data-bs-target="#collapsibleNavbar">*/}
+                    {/*    <span className="navbar-toggler-icon"></span>*/}
+                    {/*</button>*/}
+
+                    <ul className="d-lg-flex d-sm-none d-md-none navbar-nav">
                         <li className="nav-item">
                             <Link to={'/'} className="nav-link">Home</Link>
                         </li>
+                        <span>|</span>
                         <li className="nav-item">
                             <Link to={'/about'} className="nav-link">About Us</Link>
                         </li>
+                        <span>|</span>
                         <li className="nav-item">
                             <Link to={'/challenge'} className="nav-link">Challenge</Link>
                         </li>
+                        <span>|</span>
                         <li className="nav-item">
                             <a className="nav-link" href={'https://www.spaceappschallenge.org/nasa-space-apps-2024/'}
                                target={'_blank'}>
@@ -38,15 +47,43 @@ export default function HeaderNav(){
                         {/*    </ul>*/}
                         {/*</li>*/}
                     </ul>
+
+                    <ul className='navbar-nav d-lg-none d-md-flex d-sm-flex'>
+                        <li className="nav-item">
+                            <a onClick={() => {
+                                setOpened(!opened)
+                            }} className='nav-link burger-menu' data-t={'Menu'}>
+                                <IoIosMenu/>
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
-            </div>
-        </nav>
+
+            </nav>
+            {opened ? (
+                <div className="submenu d-lg-none d-md-flex d-sm-flex">
+
+                        <div className={"col text-center"}>
+                            <Link to={'/'} className="nav-link">Home</Link>
+                        </div>
+                        <div className={"col text-center"}>
+                            <Link to={'/about'} className="nav-link">About Us</Link>
+                        </div>
+                        <div className={"col text-center"}>
+                            <Link to={'/challenge'} className="nav-link">Challenge</Link>
+                        </div>
+
+                </div>
+            ) : null}
+        </div>
+
     );
 
     return (
         <div className="navbar navbar-dark bg-dark shadow-sm mb-2 customHeader">
             <div className="container">
-                <div className="row">
+            <div className="row">
                     <div className="col-2">
                         <a className="navbar-brand d-flex align-items-center">
                             <img alt={'logo'} title={'Climate Health'} src={process.env.PUBLIC_URL + "/img/logo.png"}/>
@@ -63,7 +100,7 @@ export default function HeaderNav(){
                                     <Link to={'/about'} className="nav-link">About Us</Link>
                                 </li>
                                 <li className="nav-item">
-                                <Link to={'/challenge'} className="nav-link">Challenge</Link>
+                                    <Link to={'/challenge'} className="nav-link">Challenge</Link>
                                 </li>
 
                                 <li className="nav-item">

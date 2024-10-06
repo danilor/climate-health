@@ -62,7 +62,7 @@ export default function ActualRain() {
                                     {rain.icon()}
                                 </h1>
 
-                                <h1 className="card-subtitle mb-2 text-muted">
+                                <h1 className="card-subtitle mb-2 text-muted text-center">
                                     <FiThermometer/> {temperature}°
                                 </h1>
 

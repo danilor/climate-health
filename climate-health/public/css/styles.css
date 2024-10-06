@@ -436,8 +436,12 @@ body .customHeader .title {
 body .customHeader img {
   width: 100px;
 }
+body .customHeader ul span {
+  font-size: 1.5rem;
+  color: white;
+}
 body .customHeader ul li a {
-  font-size: 25px;
+  font-size: 1.5rem;
   color: white;
   line-height: 100%;
   padding: 5px;
@@ -479,7 +483,7 @@ body .customHeroImage .hero-text {
   border-radius: 12px;
   text-align: left;
   padding: 30px 20px;
-  max-width: 450px;
+  max-width: 500px;
 }
 body .customHeroImage .hero-text h1, body .customHeroImage .hero-text h2, body .customHeroImage .hero-text h3, body .customHeroImage .hero-text h4, body .customHeroImage .hero-text p {
   color: white;
@@ -494,7 +498,7 @@ body .customHeroImage .hero-text p {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 80%;
+    width: 85%;
   }
 }
 @media (min-width: 992px) {
@@ -503,7 +507,7 @@ body .customHeroImage .hero-text p {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 48%;
+    width: 52%;
   }
 }
 @media (min-width: 1200px) {
@@ -512,7 +516,7 @@ body .customHeroImage .hero-text p {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 45%;
+    width: 49%;
   }
 }
 @media (min-width: 1400px) {
@@ -521,7 +525,7 @@ body .customHeroImage .hero-text p {
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    width: 40%;
+    width: 45%;
   }
 }
 body .predictionsIcons {
@@ -558,6 +562,32 @@ body .avatar {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #71e00f;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.burger-menu {
+  cursor: pointer;
+}
+.burger-menu img, .burger-menu svg {
+  width: 50px;
+  height: 50px;
+}
+
+.submenu {
+  width: 100%;
+  background-color: #74b559;
+  padding: 12px 15px;
+}
+.submenu a {
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -21,21 +21,28 @@ body {
     .title {
       font-size: 2.5rem;
     }
-    img{
+
+    img {
       width: 100px;
     }
 
-    ul{
-      li{
-        a{
-          font-size: 25px;
+    ul {
+      span {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      li {
+        a {
+          font-size: 1.5rem;
           color: white;
           line-height: 100%;
           padding: 5px;
           @include set_transition(all $transitionTime ease);
-
         }
-        a:hover{
+
+        a:hover {
+
           text-decoration: underline;
           text-underline-offset: 5px;
           @include set_transition(all $transitionTime ease);
@@ -61,41 +68,43 @@ body {
 
     .hero-text {
       margin-right: 10px;
-      background-color: rgba(0,0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.3);
       border-radius: $generalRadius;
       text-align: left;
       padding: 30px 20px;
-      max-width: 450px;
-      h1,h2,h3,h4,p{
+      max-width: 500px;
+
+      h1, h2, h3, h4, p {
         color: white;
         line-height: 100%;
       }
-      p{
+
+      p {
         text-align: justify;
       }
 
       @include min_md {
         @include set_transition(all $transitionTime ease);
-        width: 80%;
+        width: 85%;
       }
       @include min_lg {
         @include set_transition(all $transitionTime ease);
-        width: 48%;
+        width: 52%;
       }
       @include min_xl {
         @include set_transition(all $transitionTime ease);
-        width: 45%;
+        width: 49%;
       }
       @include min_hg {
         @include set_transition(all $transitionTime ease);
-        width: 40%;
+        width: 45%;
       }
     }
 
 
   }
 
-  .predictionsIcons{
+  .predictionsIcons {
     //height: 100%;
     display: flex;
     flex-direction: column;
@@ -106,7 +115,7 @@ body {
     margin-bottom: 20px;
     gap: 12px;
 
-    h1,h2,h3,h4,h5{
+    h1, h2, h3, h4, h5 {
       font-size: 90px;
     }
 
@@ -125,10 +134,10 @@ body {
 
   }
 
-  .aboutContainer{
-    .card-img-top{
-        height: 200px;
-        object-fit: cover;
+  .aboutContainer {
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
     }
   }
 
@@ -141,4 +150,27 @@ body {
     border: 3px solid $cartufa;
   }
 
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.burger-menu {
+  cursor: pointer;
+  img, svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.submenu{
+  width: 100%;
+  background-color: $helecho;
+  padding: 12px 15px;
+  a{
+    color: white;
+    font-size: 1.5rem;
+    @include set_transition(all $transitionTime ease);
+  }
 }
