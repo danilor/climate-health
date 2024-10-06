@@ -19,7 +19,7 @@ export default function HeaderNav(){
                     {/*    <span className="navbar-toggler-icon"></span>*/}
                     {/*</button>*/}
 
-                    <ul className="d-lg-flex d-sm-none d-md-none navbar-nav">
+                    <ul className="d-lg-flex d-none navbar-nav">
                         <li className="nav-item">
                             <Link to={'/'} className="nav-link">Home</Link>
                         </li>
@@ -49,7 +49,7 @@ export default function HeaderNav(){
                         {/*</li>*/}
                     </ul>
 
-                    <ul className='navbar-nav d-lg-none d-md-flex d-sm-flex'>
+                    <ul className='navbar-nav d-none d-md-flex d-sm-flex'>
                         <li className="nav-item">
                             <a onClick={() => {
                                 setOpened(!opened)
@@ -63,7 +63,7 @@ export default function HeaderNav(){
 
             </nav>
             {opened ? (
-                <div className="submenu d-lg-none d-md-flex d-sm-flex">
+                <div className="submenu d-none d-md-flex d-sm-flex">
 
                         <div className={"col text-center"}>
                             <Link to={'/'} className="nav-link">Home</Link>
