@@ -5,6 +5,7 @@ import RainConfig from "../config/RainConfig";
 import {FiThermometer} from "react-icons/fi";
 import useActionsStore from "../store/Actions.store";
 import Loading from "./loading/Loading";
+import { IoAlertCircleOutline } from "react-icons/io5";
 
 export default function ActualRain() {
 
@@ -38,7 +39,6 @@ export default function ActualRain() {
     };
 
     useEffect(() => {
-
         console.log(coordinates);
         getCurrentPredictions();
 
@@ -52,7 +52,7 @@ export default function ActualRain() {
         <div className="card" style={{width: '100%'}}>
 
             <div className="card-body">
-                <h5 className="card-title">Predictions of the day</h5>
+                <h5 className="card-title text-center">Predictions of the day</h5>
 
                 {!loading && (
                     <>
@@ -74,6 +74,15 @@ export default function ActualRain() {
                 {loading && (
                     <Loading/>
                 )}
+
+                { ( (rain === null || rain === undefined || temperature === null) && !loading)?
+                    (
+                        <div className="alert alert-primary" role="alert">
+                            <IoAlertCircleOutline /> Move the Map marker and click on "Get Climate Data" to show information here
+                        </div>
+                    )
+                    : null
+                }
 
 
             </div>

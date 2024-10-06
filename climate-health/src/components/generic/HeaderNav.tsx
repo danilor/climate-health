@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 import {useState} from "react";
-import { MdMenu } from "react-icons/md";
 import { IoIosMenu } from "react-icons/io";
+
+
 
 export default function HeaderNav(){
 
@@ -9,7 +10,7 @@ export default function HeaderNav(){
     const [opened, setOpened] = useState<boolean>(false);
 
     return (
-        <div className="mb-2">
+        <div className="mb-3">
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark customHeader ">
                 <div className="container">
                     <img alt={'logo'} title={'Climate Health'} src={process.env.PUBLIC_URL + "/img/logo.png"}/>

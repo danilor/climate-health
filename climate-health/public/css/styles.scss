@@ -68,7 +68,7 @@ body {
 
     .hero-text {
       margin-right: 10px;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: $generalRadius;
       text-align: left;
       padding: 30px 20px;
@@ -123,14 +123,47 @@ body {
 
   .customFooterHeroImage {
     background-image: url('../img/footerimage.jpeg');
-    height: 200px !important;
+    height: 350px !important;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
+    .hero-text {
+      margin-right: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: $generalRadius;
+      text-align: left;
+      padding: 30px 20px;
+      max-width: 90%;
 
+      h1, h2, h3, h4, p {
+        color: white;
+        line-height: 100%;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      @include min_md {
+        @include set_transition(all $transitionTime ease);
+        width: 85%;
+      }
+      @include min_lg {
+        @include set_transition(all $transitionTime ease);
+        width: 70%;
+      }
+      @include min_xl {
+        @include set_transition(all $transitionTime ease);
+        width: 65%;
+      }
+      @include min_hg {
+        @include set_transition(all $transitionTime ease);
+        width: 60%;
+      }
+    }
 
   }
 
