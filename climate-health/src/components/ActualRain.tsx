@@ -2,6 +2,7 @@ import useCoordinatesStore from "../store/Coordinates.store";
 import {useEffect, useState} from "react";
 import APIService from "../services/API.service";
 import RainConfig from "../config/RainConfig";
+import { FiThermometer } from "react-icons/fi";
 
 export default function ActualRain() {
 
@@ -34,13 +35,17 @@ export default function ActualRain() {
             <div className="card-body">
                 <h5 className="card-title">Predictions of the day</h5>
                 {(rain !== null && rain !== undefined && temperature !== null ) ? (
-                    <div>
-                        <h6 className="card-subtitle mb-2 text-muted">Rain Status</h6>
-                        <p className="card-text">{rain.text}</p>
-                        <h6 className="card-subtitle mb-2 text-muted">Temperature</h6>
-                        <p className="card-text">{temperature}</p>
+                    <div className={'predictionsIcons'}>
+                        <h1 className="card-subtitle mb-2 text-muted" title={rain.text}>
+                            {rain.icon()}
+                        </h1>
+
+                        <h1 className="card-subtitle mb-2 text-muted">
+                            {temperature}°
+                        </h1>
+
                     </div>
-                ): null}
+                ) : null}
             </div>
         </div>
     );

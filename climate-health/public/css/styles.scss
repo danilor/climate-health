@@ -72,4 +72,20 @@ body {
 
 
   }
+
+  .predictionsIcons{
+    //height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    h1,h2,h3,h4,h5{
+      font-size: 120px;
+    }
+
+  }
 }

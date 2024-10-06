@@ -495,5 +495,17 @@ body .customHeroImage .hero-text p {
     width: 40%;
   }
 }
+body .predictionsIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3, body .predictionsIcons h4, body .predictionsIcons h5 {
+  font-size: 120px;
+}
 
 /*# sourceMappingURL=styles.css.map */
