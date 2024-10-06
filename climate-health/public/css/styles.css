@@ -432,6 +432,9 @@ body .customHeader {
 body .customHeader .title {
   font-size: 2.5rem;
 }
+body .customHeader img {
+  width: 100px;
+}
 body .customHeroImage {
   background-image: url("../img/vegetablecrops.jpeg");
   height: 310px !important;

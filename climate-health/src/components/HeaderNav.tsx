@@ -6,7 +6,6 @@ export default function HeaderNav(){
                     <img alt={'logo'} title={'Climate Health'} src={process.env.PUBLIC_URL + "/img/logo.png"}/>
                     <strong className={'title'}>Climate Health</strong>
                 </a>
-
             </div>
         </div>
     );
