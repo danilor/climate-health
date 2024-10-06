@@ -422,6 +422,7 @@ Mixins
 
 body {
   background: #f2f2f2;
+  padding-bottom: 100px;
 }
 body .navbar {
   background-color: #4e9311 !important;
@@ -431,6 +432,9 @@ body .customHeader {
 }
 body .customHeader .title {
   font-size: 2.5rem;
+}
+body .customHeader img {
+  width: 100px;
 }
 body .customHeroImage {
   background-image: url("../img/vegetablecrops.jpeg");
@@ -514,6 +518,28 @@ body .predictionsIcons {
 }
 body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3, body .predictionsIcons h4, body .predictionsIcons h5 {
   font-size: 90px;
+}
+body .customFooterHeroImage {
+  background-image: url("../img/footerimage.jpeg");
+  height: 200px !important;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+body .aboutContainer .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+body .avatar {
+  vertical-align: middle;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #71e00f;
 }
 
 /*# sourceMappingURL=styles.css.map */

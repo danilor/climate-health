@@ -1,8 +1,10 @@
 from enum import Enum
 
+
 class Parameters(Enum):
     PRECIPITATION = "precip_"
     TEMPERATURE = "t_"
+
 
 class PrecipitationInterval(Enum):
     MIN_5 = "5min"
@@ -28,7 +30,7 @@ class TemperatureLevel(Enum):
     GROUND_0M = "0m"
     ABOVE_GROUND_2M = "2m"
     ABOVE_GROUND_20000M = "20000m"
-    
+
     HPA_1000 = "1000hPa"
     HPA_950 = "950hPa"
     HPA_925 = "925hPa"
@@ -45,6 +47,7 @@ class TemperatureLevel(Enum):
     HPA_70 = "70hPa"
     HPA_50 = "50hPa"
     HPA_10 = "10hPa"
+
 
 class TemperatureUnit(Enum):
     CELSIUS = "C"
