@@ -70,6 +70,28 @@ export default function ForecastTemperatureChartComponent({data}:ForecastChartCo
        }
     },[data]);
 
+    const getMinAndMax = () =>{
+        let min = 9999;
+        let max = 0;
+        if(chartData !== null){
+            chartData.forEach((item: any) => {
+                if(item.temperature < min){
+                    min = item.temperature;
+                }
+                if(item.temperature > max){
+                    max = item.temperature;
+                }
+            });
+        }
+
+        const minAndMax = {
+            min: min,
+            max: max
+        };
+        console.log('Min and Max', minAndMax);
+        return minAndMax;
+    }
+
     if(data === null || data === undefined){
         return <Loading />;
     }
@@ -92,7 +114,7 @@ export default function ForecastTemperatureChartComponent({data}:ForecastChartCo
                     >
                         <CartesianGrid strokeDasharray="3 3"/>
                         <XAxis dataKey="name"/>
-                        <YAxis/>
+                        <YAxis domain={[getMinAndMax().min - 1, getMinAndMax().max  +1]}/>
                         <Tooltip/>
                         <Legend/>
                         <Line type="monotone" dataKey="temperature" stroke="#8884d8" activeDot={{r: 8}}/>

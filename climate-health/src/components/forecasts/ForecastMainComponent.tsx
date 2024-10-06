@@ -7,6 +7,7 @@ import APIService from "../../services/API.service";
 import usePeriodStore from "../../store/Period.store";
 import useTimePeriodStore from "../../store/TimePeriod.store";
 import ForecastTemperatureChartComponent from "./ForecastTemperatureChartComponent";
+import CropModel from "../../model/Crop.model";
 
 export default function ForecastMainComponent() {
 
@@ -22,13 +23,20 @@ export default function ForecastMainComponent() {
 
     const [forecastData, setForecastData] = useState<any>(null);
 
+    const [cropsData, setCropsData] = useState<CropModel[]>([]);
+
 
     const getForecast = () => {
         // console.log('Time period', TimePeriod);
         if (coordinates.lat !== 0 && coordinates.lng !== 0) {
             APIService.getForecast(coordinates.lat, coordinates.lng, 'days', 90, TimePeriod.key).then((response) => {
-                console.log('Forecast Response', response.data.forecast);
+                // console.log('Forecast Response', response.data.forecast);
                 setForecastData(response.data.forecast);
+                // console.log('Crops data', response.data.ai_suggestions.planting_recommendations);
+                if(response.data.ai_suggestions.planting_recommendations !== undefined){
+                    // save
+                    setCropsData(response.data.ai_suggestions.planting_recommendations);
+                }
             }).catch((error) => {
                 console.error('Error reading the forecast');
             });
@@ -37,7 +45,7 @@ export default function ForecastMainComponent() {
 
 
     useEffect(() => {
-        console.log('Ready to get the forecast');
+        // console.log('Ready to get the forecast');
         getForecast();
 
     }, [actions]);
@@ -49,7 +57,7 @@ export default function ForecastMainComponent() {
 
     return (
         <>
-            <div className="card" style={{width: '100%'}}>
+            <div className="card" style={{width: '100%'}} id={'forecasting'}>
                 <div className="card-body">
                     {/*<h5 className="card-title">Forecast</h5>*/}
                     <div className={'chart'}>
@@ -57,28 +65,28 @@ export default function ForecastMainComponent() {
                             <li className="nav-item">
                                 <a onClick={() => {
                                     setActivePanel('precipitation')
-                                }} className={'nav-link ' + (activePanel === 'precipitation' ? 'active' : '')} href="#">
+                                }} className={'nav-link ' + (activePanel === 'precipitation' ? 'active' : '')}>
                                     Precipitation Forecast
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a onClick={() => {
                                     setActivePanel('temperature')
-                                }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')} href="#">
+                                }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')} >
                                     Temperature Forecast
                                 </a>
                             </li>
                             <li className={'nav-item'}>
                                 <a onClick={() => {
                                     setActivePanel('crops')
-                                }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')} href="#">
+                                }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')} >
                                     Recommended Crops
                                 </a>
                             </li>
                         </ul>
                         <div className={'tab-component'}>
                             {activePanel === 'precipitation' && (<ForecastChartComponent data={forecastData}/>)}
-                            {activePanel === 'crops' && (<CropsRecommendationsComponent/>)}
+                            {activePanel === 'crops' && (<CropsRecommendationsComponent crops={cropsData}/>)}
                             {activePanel === 'temperature' && (
                                 <ForecastTemperatureChartComponent data={forecastData}/>)}
                         </div>
