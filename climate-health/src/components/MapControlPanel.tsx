@@ -1,4 +1,7 @@
 
+import { WiDayHail } from "react-icons/wi";
+
+
 type MapControlPanelProps = {
     lat: number;
     lng: number;
@@ -8,7 +11,7 @@ type MapControlPanelProps = {
 export default function MapControlPanel({ lat, lng, actionEmitter }: MapControlPanelProps) {
     return (
         <div className="control-panel">
-            <h3 className={'text-center'}>Climate Health</h3>
+            {/*<h3 className={'text-center'}>Climate Health</h3>*/}
 
             <div className={'cord'}>
                 <div className="form-group">
@@ -23,11 +26,8 @@ export default function MapControlPanel({ lat, lng, actionEmitter }: MapControlP
                 </div>
 
                 <div className={'form-group mt-3 text-center'}>
-                    <button onClick={()=>{actionEmitter('get')}} className={'btn btn-primary'}>Get Climate Data</button>
+                    <button onClick={()=>{actionEmitter('get')}} className={'btn btn-primary'}><WiDayHail /> Get Climate Data</button>
                 </div>
-
-
-
 
             </div>
 

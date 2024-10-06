@@ -414,7 +414,7 @@ Mixins
   }
 }
 body {
-  background: white;
+  background: #f2f2f2;
 }
 body .navbar {
   background-color: #4e9311 !important;
@@ -446,7 +446,7 @@ body .customHeroImage {
 }
 body .customHeroImage .hero-text {
   margin-right: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   text-align: left;
   padding: 30px 20px;

@@ -1,6 +1,12 @@
 const RainConfig = {
     scale:[
         {
+            min: 0.0,
+            max: 0,
+            state: 'clear',
+            text: 'Clear'
+        },
+        {
             min: 0.1,
             max: 2.5,
             state: 'weak',
