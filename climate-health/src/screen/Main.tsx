@@ -9,18 +9,13 @@ import StringUtilities from "../String.utilities";
 export default function Main(){
 
     const coordinates =  useCoordinatesStore( (state: any) => state.coordinates);
-    const setCoordinates =  useCoordinatesStore( (state: any) => state.setCoordinates);
     const setAction =  useActionsStore( (state: any) => state.setAction);
-    const actions =  useActionsStore( (state: any) => state.actions);
-
-
-
 
     useEffect(()=>{
         // LoadingService.show();
     },[]);
 
-    console.log('Coordinates', coordinates);
+    // console.log('Coordinates', coordinates);
 
     const executeAction = (action: string) =>{
         // console.log('Action to be executed', action, coordinates);

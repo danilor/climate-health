@@ -53,6 +53,9 @@ export function SingleMapComponent({
         const location = window.navigator && window.navigator.geolocation
         if (location) {
             location.getCurrentPosition((position) => {
+
+                console.log('Location got:', position.coords.latitude, position.coords.longitude);
+
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
                 setMapLat(position.coords.latitude);

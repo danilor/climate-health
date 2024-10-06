@@ -2,7 +2,7 @@ import useCoordinatesStore from "../store/Coordinates.store";
 import {useEffect, useState} from "react";
 import APIService from "../services/API.service";
 import RainConfig from "../config/RainConfig";
-import { FiThermometer } from "react-icons/fi";
+import {FiThermometer} from "react-icons/fi";
 import useActionsStore from "../store/Actions.store";
 import Loading from "./Loading";
 
@@ -13,12 +13,12 @@ export default function ActualRain() {
     const actions = useActionsStore((state: any) => state.actions);
 
     const [rain, setRain] = useState<any>(null);
-    const [temperature, setTemperature] = useState<number|null>(null);
+    const [temperature, setTemperature] = useState<number | null>(null);
 
     const [loading, setLoading] = useState<boolean>(false);
 
     const getCurrentPredictions = () => {
-      setLoading(true);
+        setLoading(true);
         APIService.getCurrent(coordinates.lat, coordinates.lng).then((response) => {
             console.log('Coordinates Response');
             console.log(response.data);
@@ -42,7 +42,9 @@ export default function ActualRain() {
 
     }, [actions]);
 
-    console.log('Actions', actions);
+    // console.log('Actions', actions);
+
+    // console.log('Coordinates', coordinates);
 
     return (
         <div className="card" style={{width: '100%'}}>
@@ -52,14 +54,14 @@ export default function ActualRain() {
 
                 {!loading && (
                     <>
-                        {(rain !== null && rain !== undefined && temperature !== null ) ? (
+                        {(rain !== null && rain !== undefined && temperature !== null) ? (
                             <div className={'predictionsIcons'}>
                                 <h1 className="card-subtitle mb-2 text-muted" title={rain.text}>
                                     {rain.icon()}
                                 </h1>
 
                                 <h1 className="card-subtitle mb-2 text-muted">
-                                    <FiThermometer /> {temperature}°
+                                    <FiThermometer/> {temperature}°
                                 </h1>
 
                             </div>
@@ -70,7 +72,6 @@ export default function ActualRain() {
                 {loading && (
                     <Loading/>
                 )}
-
 
 
             </div>
