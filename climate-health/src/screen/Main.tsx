@@ -4,12 +4,17 @@ import ActualRain from "../components/ActualRain";
 import FooterComponent from "../components/FooterComponent";
 import {useEffect} from "react";
 import LoadingService from "../services/Loading.service";
+import useCoordinatesStore from "../store/Coordinates.store";
 
 export default function Main(){
+
+    const coordinates =  useCoordinatesStore( (state: any) => state.coordinates);
 
     useEffect(()=>{
         // LoadingService.show();
     },[]);
+
+    console.log('Coordinates', coordinates);
 
     return (
 
