@@ -93,7 +93,14 @@ export default function ForecastTemperatureChartComponent({data}:ForecastChartCo
     }
 
     if(data === null || data === undefined){
-        return <Loading />;
+        return (
+            <>
+                <Loading/>
+                <div className="alert alert-warning" role="alert">
+                    Please hold on while we gather the necessary information to deliver the most accurate forecast and tailored crop recommendations for you.
+                </div>
+            </>
+        );
     }
 
 

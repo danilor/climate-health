@@ -25,6 +25,8 @@ export default function ForecastMainComponent() {
 
     const [cropsData, setCropsData] = useState<CropModel[]>([]);
 
+    const [climateDescription, setClimateDescription] = useState<string>('');
+
 
     const getForecast = () => {
         // console.log('Time period', TimePeriod);
@@ -36,6 +38,7 @@ export default function ForecastMainComponent() {
                 if(response.data.ai_suggestions.planting_recommendations !== undefined){
                     // save
                     setCropsData(response.data.ai_suggestions.planting_recommendations);
+                    setClimateDescription(response.data.ai_suggestions.climate_summary.general_description);
                 }
             }).catch((error) => {
                 console.error('Error reading the forecast');
@@ -60,6 +63,11 @@ export default function ForecastMainComponent() {
             <div className="card" style={{width: '100%'}} id={'forecasting'}>
                 <div className="card-body">
                     {/*<h5 className="card-title">Forecast</h5>*/}
+
+                    <div className="alert alert-secondary" role="alert">
+                        {climateDescription}
+                    </div>
+
                     <div className={'chart'}>
                         <ul className="nav nav-tabs">
                             <li className="nav-item">
@@ -72,14 +80,14 @@ export default function ForecastMainComponent() {
                             <li className="nav-item">
                                 <a onClick={() => {
                                     setActivePanel('temperature')
-                                }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')} >
+                                }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')}>
                                     Temperature Forecast
                                 </a>
                             </li>
                             <li className={'nav-item'}>
                                 <a onClick={() => {
                                     setActivePanel('crops')
-                                }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')} >
+                                }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')}>
                                     Recommended Crops
                                 </a>
                             </li>
