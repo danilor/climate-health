@@ -41,7 +41,7 @@ export default function ActualRain() {
                         </h1>
 
                         <h1 className="card-subtitle mb-2 text-muted">
-                            {temperature}°
+                            <FiThermometer /> {temperature}°
                         </h1>
 
                     </div>

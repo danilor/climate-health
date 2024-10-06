@@ -503,9 +503,10 @@ body .predictionsIcons {
   flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
+  gap: 12px;
 }
 body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3, body .predictionsIcons h4, body .predictionsIcons h5 {
-  font-size: 120px;
+  font-size: 90px;
 }
 
 /*# sourceMappingURL=styles.css.map */
