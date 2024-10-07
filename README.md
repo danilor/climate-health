@@ -9,6 +9,11 @@
  - Marco Daniel Vargas Bermúdez
  - Danilo Josué Ramírez Mattey
 
+## Presentations
+
+[Syntesis](https://www.canva.com/design/DAGS1eAIghc/4yd5EP40a2BCOkdMJdV9OA/edit?utm_content=DAGS1eAIghc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Full Presentation](https://www.canva.com/design/DAGSu5y7oNc/jGpi8ysGFpI5pbMAEcIM5w/edit?utm_content=DAGSu5y7oNc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Technology
 
 This solution was developed using Python and Node.js as the primary technologies. It is structured into two main layers: Backend and Frontend. Both layers are required to run the application in local environments.
