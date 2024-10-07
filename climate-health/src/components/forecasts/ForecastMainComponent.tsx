@@ -88,22 +88,22 @@ export default function ForecastMainComponent() {
 
 
                     <div className={'chart'}>
-                        <ul className="nav nav-tabs">
-                            <li className="nav-item">
+                        <ul className="nav nav-tabs customTabs">
+                            <li className="nav-item col-4 text-center">
                                 <a onClick={() => {
                                     setActivePanel('precipitation')
                                 }} className={'nav-link ' + (activePanel === 'precipitation' ? 'active' : '')}>
                                     Precipitation Forecast
                                 </a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item col-4 text-center">
                                 <a onClick={() => {
                                     setActivePanel('temperature')
                                 }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')}>
                                     Temperature Forecast
                                 </a>
                             </li>
-                            <li className={'nav-item'}>
+                            <li className='nav-item col-4 text-center'>
                                 <a onClick={() => {
                                     setActivePanel('crops')
                                 }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')}>

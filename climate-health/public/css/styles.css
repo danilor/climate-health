@@ -638,11 +638,27 @@ body .avatar {
 }
 .submenu a {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
+}
+
+.tab-component {
+  padding: 12px 10px;
+  border: 1px solid #dee2e6;
+}
+
+@media (max-width: 767px) {
+  .customTabs a {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 576px -1) {
+  .customTabs a {
+    font-size: 0.76rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

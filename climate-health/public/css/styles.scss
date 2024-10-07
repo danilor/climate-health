@@ -207,7 +207,24 @@ body {
   padding: 12px 15px;
   a{
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     @include set_transition(all $transitionTime ease);
+  }
+}
+
+.tab-component{
+  padding: 12px 10px;
+  border: 1px solid #dee2e6;
+}
+
+.customTabs{
+  a{
+    @include max_md {
+        font-size: 0.8rem;
+    }
+    @include max_xs {
+      font-size: 0.76rem;
+    }
+
   }
 }

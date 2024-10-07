@@ -87,13 +87,13 @@ export default function ForecastChartComponent({data}:ForecastChartComponentType
                         </LineChart>
                     </ResponsiveContainer>
 
-                    <div className="alert alert-primary" role="alert">
+                    <div className="alert alert-secondary" role="alert">
                         <h3>What does this mean?</h3>
                         <div className={'row'}>
 
                             {RainConfig.scale.map((item, index) => (
                                 <>
-                                    <div key={'explanation_' + index} className='text-center col-12 col-md-6 col-lg-3'>
+                                    <div key={'explanation_' + index} className='text-center col-12 col-sm-6 col-md-6 col-lg-3'>
                                         <h1 style={{fontSize:'50px'}}>{item.icon()}</h1>
                                         <p>From {item.min} to {item.max}</p>
                                         <h3>{item.text}</h3>
