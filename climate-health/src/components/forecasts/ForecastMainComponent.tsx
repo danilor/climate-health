@@ -9,6 +9,9 @@ import useTimePeriodStore from "../../store/TimePeriod.store";
 import ForecastTemperatureChartComponent from "./ForecastTemperatureChartComponent";
 import CropModel from "../../model/Crop.model";
 import Loading from "../loading/Loading";
+import {FaCloudRain, FaThermometerThreeQuarters} from "react-icons/fa";
+import { GiFruitBowl } from "react-icons/gi";
+
 
 export default function ForecastMainComponent() {
 
@@ -93,21 +96,27 @@ export default function ForecastMainComponent() {
                                 <a onClick={() => {
                                     setActivePanel('precipitation')
                                 }} className={'nav-link ' + (activePanel === 'precipitation' ? 'active' : '')}>
-                                    Precipitation Forecast
+                                    <FaCloudRain/>
+                                    <span className='d-none d-md-block'>Precipitation Forecast</span>
+                                    <span className='d-block d-md-none'>Rain</span>
                                 </a>
                             </li>
                             <li className="nav-item col-4 text-center">
                                 <a onClick={() => {
                                     setActivePanel('temperature')
                                 }} className={'nav-link ' + (activePanel === 'temperature' ? 'active' : '')}>
-                                    Temperature Forecast
+                                    <FaThermometerThreeQuarters/>
+                                    <span className='d-none d-md-block'>Temperature Forecast</span>
+                                    <span className='d-block d-md-none'>Temp.</span>
                                 </a>
                             </li>
                             <li className='nav-item col-4 text-center'>
                                 <a onClick={() => {
                                     setActivePanel('crops')
                                 }} className={'nav-link ' + (activePanel === 'crops' ? 'active' : '')}>
-                                    Recommended Crops
+                                    <GiFruitBowl/>
+                                    <span className='d-none d-md-block'>Recommended Crops</span>
+                                    <span className='d-block d-md-none'>Crops</span>
                                 </a>
                             </li>
                         </ul>
