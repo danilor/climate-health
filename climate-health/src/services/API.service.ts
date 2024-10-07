@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = 'https://apicm.japscr.com/api/';
 
-// const BASE_URL = `${API_URL}/api`; 
+// const BASE_URL = `${API_URL}/api`;
 
 const API_URLS = {
     current: BASE_URL + "current/?latitude=[LAT]&longitude=[LNG]",

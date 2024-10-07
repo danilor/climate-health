@@ -32,13 +32,13 @@ export default function About() {
                                 {users.map((user: UserModel, index: number) => {
                                     return (
                                         <div key={'index_user_' + index.toString()} className='row mb-5'>
-                                            <div className='col-3 d-flex justify-content-center align-items-center'>
+                                            <div className='col-12 col-lg-3 d-flex justify-content-center align-items-center'>
                                                 <img src={process.env.PUBLIC_URL + '/img/users/' + user.image}
                                                      alt="Avatar"
                                                      className="avatar"
                                                 />
                                             </div>
-                                            <div className='col-9'>
+                                            <div className='col-12 col-lg-9'>
 
                                                 <h5 className="card-title">{user.name}</h5>
                                                 {user.description.map((desc: string, index2: number) => {

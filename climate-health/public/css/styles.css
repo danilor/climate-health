@@ -616,6 +616,7 @@ body .avatar {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #71e00f;
+  aspect-ratio: 1;
 }
 
 .card-text {

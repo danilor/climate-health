@@ -26,6 +26,7 @@ export default function Main() {
             case 'get':
                 // console.log('Get action');
                 setAction(`Get Coordinates [${StringUtilities.randomId(10)}]`);
+                document.getElementById('nextForecast')?.scrollIntoView({behavior: 'smooth'});
                 break;
         }
     }

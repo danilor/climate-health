@@ -9,7 +9,7 @@ type CropsRecommendationsComponentProps = {
 
 export function SingleCrop({crop}: { crop: CropModel }) {
     return (
-        <div className='col col-md-3 d-flex align-items-stretch mb-2'>
+        <div className='col-12 col-md-3 d-flex align-items-stretch mb-2'>
             <div className="card align-items-stretch">
                 <img src={process.env.PUBLIC_URL + '/img/crops.jpg'} className="card-img-top" alt="Crops"/>
                 <div className="card-body align-items-stretch">

@@ -49,7 +49,7 @@ export default function ActualRain() {
     // console.log('Coordinates', coordinates);
 
     return (
-        <div className="card" style={{width: '100%'}}>
+        <div className="card" id='nextForecast' style={{width: '100%'}}>
 
             <div className="card-body">
                 <h5 className="card-title text-center">Predictions of the day</h5>
