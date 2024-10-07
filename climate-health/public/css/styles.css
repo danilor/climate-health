@@ -480,12 +480,17 @@ body .customHeroImage {
   }
 }
 body .customHeroImage .hero-text {
-  margin-right: 10px;
+  margin-right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   text-align: left;
   padding: 30px 20px;
   max-width: 500px;
+}
+@media (min-width: 992px) {
+  body .customHeroImage .hero-text {
+    margin: 10px;
+  }
 }
 body .customHeroImage .hero-text h1, body .customHeroImage .hero-text h2, body .customHeroImage .hero-text h3, body .customHeroImage .hero-text h4, body .customHeroImage .hero-text p {
   color: white;

@@ -69,7 +69,10 @@ body {
     }
 
     .hero-text {
-      margin-right: 10px;
+      margin-right: 0;
+      @include min_lg {
+        margin:10px;
+      }
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: $generalRadius;
       text-align: left;
