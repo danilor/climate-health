@@ -6,6 +6,7 @@ import {FiThermometer} from "react-icons/fi";
 import useActionsStore from "../store/Actions.store";
 import Loading from "./loading/Loading";
 import { IoAlertCircleOutline } from "react-icons/io5";
+import 'animate.css';
 
 export default function ActualRain() {
 
@@ -51,22 +52,35 @@ export default function ActualRain() {
     return (
         <div className="card" id='nextForecast' style={{width: '100%'}}>
 
-            <div className="card-body">
+            <div className="card-body d-flex flex-column">
                 <h5 className="card-title text-center">Predictions of the day</h5>
 
                 {!loading && (
                     <>
                         {(rain !== null && rain !== undefined && temperature !== null) ? (
-                            <div className={'predictionsIcons'}>
-                                <h1 className="card-subtitle mb-2 text-muted" title={rain.text}>
-                                    {rain.icon()}
-                                </h1>
 
-                                <h1 className="card-subtitle mb-2 text-muted text-center">
-                                    <FiThermometer/> {temperature}°
-                                </h1>
+                            <div className={'predictionsSpace'}>
 
+                                <div className={'nextPrediction animate__animated animate__pulse'}>
+                                    <div className="icon">
+                                        {rain.icon()}
+                                    </div>
+                                    <div className="text">
+                                        <h3>{rain.text}</h3>
+                                    </div>
+                                </div>
+
+                                <div className={'nextPrediction animate__animated animate__pulse'}>
+                                    <div className="icon">
+                                        <FiThermometer/>
+                                    </div>
+                                    <div className="text">
+                                        <h3>{temperature}°</h3>
+                                    </div>
+                                </div>
                             </div>
+
+
                         ) : null}
                     </>
                 )}
@@ -75,10 +89,11 @@ export default function ActualRain() {
                     <Loading/>
                 )}
 
-                { ( (rain === null || rain === undefined || temperature === null) && !loading)?
+                {((rain === null || rain === undefined || temperature === null) && !loading) ?
                     (
                         <div className="alert alert-primary" role="alert">
-                            <IoAlertCircleOutline /> Move the Map marker and click on "Get Climate Data" to show information here
+                            <IoAlertCircleOutline/> Move the Map marker and click on "Get Climate Data" to show
+                            information here
                         </div>
                     )
                     : null

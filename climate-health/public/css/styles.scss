@@ -54,7 +54,7 @@ body {
   .customHeroImage {
     background-image: url('../img/vegetablecrops.jpeg');
     min-height: 310px !important;
-    height: auto!important;
+    height: auto !important;
     padding: 12px 0;
     background-size: cover;
     background-position: center;
@@ -118,10 +118,70 @@ body {
     gap: 12px;
 
     h1, h2, h3, h4, h5 {
-      font-size: 90px;
+      font-size: 70px;
     }
 
   }
+
+  .predictionsSpace{
+
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    @include min-lg(){
+        flex-direction: column;
+    }
+
+    .nextPrediction {
+      margin-bottom: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        width: 35%;
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 5px solid $cartufa;
+        border-radius: 50%;
+        background-color: white;
+
+        img, svg {
+          width: 60%;
+          height: 60%;
+        }
+
+        z-index: 9;
+      }
+
+      .text {
+        z-index: 8;
+        text-align: center;
+        border: 5px solid $cartufa;
+        border-radius: $generalRadius;
+        background-color: white;
+        width: 80%;
+        aspect-ratio: 7 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: -15%;
+        h3 {
+          font-size: 2.1rem;
+          @include max_md{
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+
 
   .customFooterHeroImage {
     background-image: url('../img/footerimage.jpeg');
@@ -133,6 +193,7 @@ body {
     align-content: center;
     align-items: center;
     padding: 14px 0;
+
     .hero-text {
       margin-right: 10px;
       background-color: rgba(0, 0, 0, 0.6);
@@ -195,32 +256,34 @@ body {
 
 .burger-menu {
   cursor: pointer;
+
   img, svg {
     width: 50px;
     height: 50px;
   }
 }
 
-.submenu{
+.submenu {
   width: 100%;
   background-color: $helecho;
   padding: 12px 15px;
-  a{
+
+  a {
     color: white;
     font-size: 1.3rem;
     @include set_transition(all $transitionTime ease);
   }
 }
 
-.tab-component{
+.tab-component {
   padding: 12px 10px;
   border: 1px solid #dee2e6;
 }
 
-.customTabs{
-  a{
+.customTabs {
+  a {
     @include max_md {
-        font-size: 0.8rem;
+      font-size: 0.8rem;
     }
     @include max_xs {
       font-size: 0.76rem;

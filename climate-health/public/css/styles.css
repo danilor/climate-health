@@ -541,7 +541,61 @@ body .predictionsIcons {
   gap: 12px;
 }
 body .predictionsIcons h1, body .predictionsIcons h2, body .predictionsIcons h3, body .predictionsIcons h4, body .predictionsIcons h5 {
-  font-size: 90px;
+  font-size: 70px;
+}
+body .predictionsSpace {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  body .predictionsSpace {
+    flex-direction: column;
+  }
+}
+body .predictionsSpace .nextPrediction {
+  margin-bottom: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .predictionsSpace .nextPrediction .icon {
+  width: 35%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #71e00f;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 9;
+}
+body .predictionsSpace .nextPrediction .icon img, body .predictionsSpace .nextPrediction .icon svg {
+  width: 60%;
+  height: 60%;
+}
+body .predictionsSpace .nextPrediction .text {
+  z-index: 8;
+  text-align: center;
+  border: 5px solid #71e00f;
+  border-radius: 12px;
+  background-color: white;
+  width: 80%;
+  aspect-ratio: 7/3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: -15%;
+}
+body .predictionsSpace .nextPrediction .text h3 {
+  font-size: 2.1rem;
+}
+@media (max-width: 767px) {
+  body .predictionsSpace .nextPrediction .text h3 {
+    font-size: 1.5rem;
+  }
 }
 body .customFooterHeroImage {
   background-image: url("../img/footerimage.jpeg");
